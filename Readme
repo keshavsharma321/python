@@ -1,0 +1,94 @@
+
+```
+
+**Setup Instructions:**
+
+1. Install required dependencies:
+   ```bash
+   pip install fastapi uvicorn pymongo
+   ```
+
+2. Ensure MongoDB is installed and running locally on port 27017.
+
+3. Save the code in a file named `main.py`.
+
+4. Run the FastAPI application using Uvicorn:
+   ```bash
+   uvicorn main:app --reload
+   ```
+
+**API Documentation:**
+
+- **Create Post**
+  - Method: POST
+  - URL: `/posts/`
+  - Request Body:
+    ```json
+    {
+      "title": "string",
+      "content": "string"
+    }
+    ```
+  - Response: New post details including ID.
+
+- **Read All Posts**
+  - Method: GET
+  - URL: `/posts/`
+  - Response: List of all posts.
+
+- **Read Single Post**
+  - Method: GET
+  - URL: `/posts/{post_id}`
+  - Response: Details of the specified post.
+
+- **Update Post**
+  - Method: PUT
+  - URL: `/posts/{post_id}`
+  - Request Body:
+    ```json
+    {
+      "title": "string",
+      "content": "string"
+    }
+    ```
+  - Response: Message confirming update.
+
+- **Delete Post**
+  - Method: DELETE
+  - URL: `/posts/{post_id}`
+  - Response: Message confirming deletion.
+
+- **Create Comment**
+  - Method: POST
+  - URL: `/posts/{post_id}/comments/`
+  - Request Body:
+    ```json
+    {
+      "text": "string"
+    }
+    ```
+  - Response: Message confirming comment addition.
+
+- **Add Like**
+  - Method: POST
+  - URL: `/posts/{post_id}/likes/`
+  - Request Body:
+    ```json
+    {
+      "value": 1
+    }
+    ```
+  - Response: Message confirming like addition.
+
+- **Add Dislike**
+  - Method: POST
+  - URL: `/posts/{post_id}/dislikes/`
+  - Request Body:
+    ```json
+    {
+      "value": 1
+    }
+    ```
+  - Response: Message confirming dislike addition.
+
+This implementation follows RESTful principles, uses object-oriented programming with Pydantic models, handles errors appropriately, and provides clear documentation for API usage.
